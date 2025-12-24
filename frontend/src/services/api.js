@@ -1,7 +1,10 @@
 // API 서비스 모듈
-const API_BASE_URL = window.location.hostname === 'localhost' 
-  ? 'http://localhost:3001/api' 
-  : `http://${window.location.hostname}:3001/api`;
+// 배포 환경에서는 같은 도메인 사용, 로컬에서는 별도 포트
+const API_BASE_URL = import.meta.env.VITE_API_URL || (
+  window.location.hostname === 'localhost' 
+    ? 'http://localhost:3001/api' 
+    : `${window.location.origin}/api`
+);
 
 // 토큰 관리
 export const getToken = () => localStorage.getItem('token');

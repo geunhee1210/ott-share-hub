@@ -875,6 +875,25 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// ============== 프론트엔드 정적 파일 서빙 ==============
+// 프론트엔드 빌드 폴더 경로
+const frontendBuildPath = path.join(__dirname, '../frontend/dist');
+
+// 정적 파일 서빙 (프론트엔드 빌드 결과물)
+if (fs.existsSync(frontendBuildPath)) {
+  app.use(express.static(frontendBuildPath));
+  
+  // SPA를 위한 모든 GET 요청을 index.html로 라우팅 (API 제외)
+  app.get('*', (req, res) => {
+    // API 요청이 아닌 경우에만 index.html 반환
+    if (!req.path.startsWith('/api')) {
+      res.sendFile(path.join(frontendBuildPath, 'index.html'));
+    }
+  });
+  
+  console.log('📂 프론트엔드 정적 파일 서빙 활성화');
+}
+
 // ============== 서버 시작 ==============
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ OTT Share Hub API 서버가 포트 ${PORT}에서 실행 중입니다.`);

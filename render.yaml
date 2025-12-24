@@ -1,0 +1,19 @@
+# Render 배포 설정 파일
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: ott-share-hub
+    runtime: node
+    buildCommand: npm run render-build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 10000
+    healthCheckPath: /api/health
+    autoDeploy: true
+
