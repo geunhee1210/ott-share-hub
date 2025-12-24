@@ -868,17 +868,6 @@ app.delete('/api/admin/ott/:id', authenticateToken, requireAdmin, (req, res) => 
 });
 
 // ============== 헬스 체크 ==============
-// Railway healthcheck용 루트 경로
-app.get('/', (req, res) => {
-  res.json({
-    status: 'ok',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
-    version: '1.0.0',
-    service: 'OTT Share Hub API'
-  });
-});
-
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
