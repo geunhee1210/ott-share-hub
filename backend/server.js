@@ -1,8 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 const path = require('path');
 const fs = require('fs');
+
+// uuid 대신 Node.js 내장 함수 사용
+const uuidv4 = () => crypto.randomUUID();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
