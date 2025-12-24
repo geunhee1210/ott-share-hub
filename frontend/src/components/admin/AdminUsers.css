@@ -1,0 +1,208 @@
+/* Admin Users */
+.users-toolbar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.users-toolbar .search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--netflix-gray-800);
+  border: 1px solid var(--netflix-gray-700);
+  border-radius: var(--radius-sm);
+  flex: 1;
+  max-width: 400px;
+}
+
+.users-toolbar .search-box svg {
+  color: var(--netflix-gray-500);
+}
+
+.users-toolbar .search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-size: 0.9375rem;
+  padding: 0;
+}
+
+.users-toolbar .search-box input:focus {
+  outline: none;
+}
+
+/* Users Table */
+.users-table {
+  background: var(--netflix-gray-900);
+  border: 1px solid var(--netflix-gray-800);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.users-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--netflix-gray-800);
+}
+
+.users-table th {
+  background: var(--netflix-gray-800);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--netflix-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.users-table tr:last-child td {
+  border-bottom: none;
+}
+
+.users-table tr:hover {
+  background: var(--netflix-gray-800);
+}
+
+.user-info-col {
+  min-width: 250px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--netflix-gray-700);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.user-avatar.admin {
+  background: var(--gradient-red);
+}
+
+.user-name {
+  display: block;
+  font-weight: 500;
+}
+
+.user-email {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--netflix-gray-500);
+}
+
+.role-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.role-badge.admin {
+  background: rgba(229, 9, 20, 0.15);
+  color: var(--netflix-red);
+}
+
+.role-badge.user {
+  background: var(--netflix-gray-700);
+  color: var(--netflix-gray-300);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background: rgba(70, 211, 105, 0.15);
+  color: var(--accent-green);
+}
+
+.status-badge.suspended {
+  background: rgba(229, 9, 20, 0.15);
+  color: var(--netflix-red);
+}
+
+.actions-col {
+  width: 60px;
+}
+
+.actions-menu {
+  position: relative;
+}
+
+.menu-trigger {
+  padding: 8px;
+  background: transparent;
+  border: none;
+  color: var(--netflix-gray-500);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+
+.menu-trigger:hover {
+  background: var(--netflix-gray-700);
+  color: var(--netflix-white);
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 140px;
+  background: var(--netflix-gray-800);
+  border: 1px solid var(--netflix-gray-700);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: var(--shadow-lg);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  color: var(--netflix-gray-300);
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.menu-item:hover {
+  background: var(--netflix-gray-700);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+

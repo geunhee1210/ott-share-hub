@@ -1,0 +1,364 @@
+/* Catalog Header */
+.catalog-header {
+  padding: 80px 0 40px;
+  background: linear-gradient(to bottom, var(--netflix-dark) 0%, var(--netflix-black) 100%);
+  text-align: center;
+}
+
+.catalog-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.catalog-header p {
+  font-size: 1.125rem;
+  color: var(--netflix-gray-400);
+  margin-bottom: 40px;
+}
+
+/* Search & Filter */
+.catalog-controls {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--netflix-gray-800);
+  border: 1px solid var(--netflix-gray-700);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+
+.search-box svg {
+  color: var(--netflix-gray-500);
+}
+
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.category-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-filter svg {
+  color: var(--netflix-gray-500);
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  background: var(--netflix-gray-800);
+  border: 1px solid var(--netflix-gray-700);
+  border-radius: 20px;
+  color: var(--netflix-gray-400);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.filter-btn:hover {
+  border-color: var(--netflix-gray-500);
+  color: var(--netflix-white);
+}
+
+.filter-btn.active {
+  background: var(--netflix-red);
+  border-color: var(--netflix-red);
+  color: var(--netflix-white);
+}
+
+/* Catalog Grid */
+.catalog-grid-section {
+  padding: 40px 0 80px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Service Card */
+.service-card {
+  background: var(--netflix-gray-900);
+  border: 1px solid var(--netflix-gray-800);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--netflix-gray-600);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-card-header {
+  position: relative;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-logo {
+  font-size: 4rem;
+}
+
+.service-card-header .discount-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  background: var(--netflix-red);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.service-card-body {
+  padding: 24px;
+}
+
+.service-card-body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.service-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  color: var(--netflix-gray-400);
+}
+
+.meta-item svg {
+  color: var(--accent-gold);
+}
+
+.service-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.service-pricing .original {
+  font-size: 0.875rem;
+  color: var(--netflix-gray-500);
+  text-decoration: line-through;
+}
+
+.service-pricing .share {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--netflix-white);
+}
+
+.service-pricing .period {
+  font-size: 0.875rem;
+  color: var(--netflix-gray-500);
+}
+
+.service-btn {
+  width: 100%;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.service-modal {
+  width: 100%;
+  max-width: 600px;
+  background: var(--netflix-gray-900);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 32px;
+  position: relative;
+}
+
+.modal-logo {
+  font-size: 4rem;
+}
+
+.modal-header h2 {
+  font-size: 1.75rem;
+  margin-bottom: 4px;
+}
+
+.modal-discount {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: var(--netflix-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body {
+  padding: 32px;
+}
+
+.modal-desc {
+  font-size: 1rem;
+  color: var(--netflix-gray-300);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.modal-stats {
+  display: flex;
+  gap: 32px;
+  padding: 20px;
+  background: var(--netflix-gray-800);
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+}
+
+.modal-stats .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.modal-stats .stat svg {
+  color: var(--netflix-red);
+}
+
+.modal-stats .stat span {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.modal-stats .stat label {
+  font-size: 0.75rem;
+  color: var(--netflix-gray-500);
+}
+
+.modal-features h4 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.modal-features ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.modal-features li {
+  font-size: 0.9375rem;
+  color: var(--netflix-gray-300);
+}
+
+.modal-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid var(--netflix-gray-700);
+}
+
+.price-info .original {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--netflix-gray-500);
+  text-decoration: line-through;
+}
+
+.price-info .share {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.price-info .share span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--netflix-gray-400);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .catalog-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .category-filter {
+    gap: 6px;
+  }
+  
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.8125rem;
+  }
+  
+  .modal-features ul {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-pricing {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+

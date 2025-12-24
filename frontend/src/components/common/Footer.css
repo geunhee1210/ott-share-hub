@@ -1,0 +1,134 @@
+/* Footer */
+.footer {
+  background: var(--netflix-dark);
+  border-top: 1px solid var(--netflix-gray-800);
+  padding: 60px 0 30px;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Brand */
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.footer-logo .logo-text {
+  color: var(--netflix-white);
+}
+
+.footer-logo .logo-highlight {
+  color: var(--netflix-red);
+}
+
+.footer-desc {
+  font-size: 0.875rem;
+  color: var(--netflix-gray-400);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--netflix-gray-800);
+  border-radius: var(--radius-sm);
+  color: var(--netflix-gray-400);
+  transition: all var(--transition-fast);
+}
+
+.footer-social a:hover {
+  background: var(--netflix-red);
+  color: var(--netflix-white);
+}
+
+/* Sections */
+.footer-section h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--netflix-white);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section li {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  font-size: 0.875rem;
+  color: var(--netflix-gray-400);
+  transition: color var(--transition-fast);
+}
+
+.footer-section a:hover {
+  color: var(--netflix-white);
+}
+
+/* Bottom */
+.footer-bottom {
+  padding-top: 30px;
+  border-top: 1px solid var(--netflix-gray-800);
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.8125rem;
+  color: var(--netflix-gray-500);
+}
+
+.footer-notice {
+  margin-top: 8px;
+  font-size: 0.75rem !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .footer-brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-brand {
+    grid-column: span 1;
+  }
+}
+

@@ -1,0 +1,358 @@
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  transition: background 1s ease;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 60px;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--netflix-red);
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  color: var(--netflix-gray-300);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-indicators {
+  position: absolute;
+  bottom: 60px;
+  left: 4%;
+  display: flex;
+  gap: 8px;
+}
+
+.indicator {
+  width: 40px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.indicator.active {
+  background: var(--netflix-red);
+  width: 60px;
+}
+
+/* OTT Section */
+.ott-section {
+  background: var(--netflix-black);
+  padding-top: 0;
+  margin-top: -100px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.section-header.center {
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.section-header.center p {
+  color: var(--netflix-gray-400);
+}
+
+.see-all {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9375rem;
+  color: var(--netflix-gray-400);
+  transition: color var(--transition-fast);
+}
+
+.see-all:hover {
+  color: var(--netflix-white);
+}
+
+/* Features Section */
+.features-section {
+  background: linear-gradient(to bottom, var(--netflix-black) 0%, var(--netflix-dark) 100%);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--netflix-gray-900);
+  border: 1px solid var(--netflix-gray-800);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.feature-card:hover {
+  border-color: var(--netflix-red);
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--netflix-red) 0%, #831010 100%);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--netflix-white);
+}
+
+.feature-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 0.875rem;
+  color: var(--netflix-gray-400);
+}
+
+/* Pricing Preview Section */
+.pricing-preview-section {
+  background: var(--netflix-dark);
+}
+
+.pricing-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.pricing-preview-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.pricing-preview-content p {
+  font-size: 1.125rem;
+  color: var(--netflix-gray-400);
+  margin-bottom: 24px;
+}
+
+.pricing-benefits {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.pricing-benefits li {
+  font-size: 1rem;
+  color: var(--netflix-gray-300);
+  margin-bottom: 12px;
+}
+
+.pricing-preview-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.preview-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  background: var(--netflix-gray-900);
+  border: 1px solid var(--netflix-gray-800);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+.preview-card:hover {
+  border-color: var(--netflix-gray-600);
+}
+
+.preview-card.featured {
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.15) 0%, rgba(229, 9, 20, 0.05) 100%);
+  border-color: var(--netflix-red);
+}
+
+.preview-service {
+  font-weight: 600;
+  min-width: 140px;
+}
+
+.preview-price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.preview-price .original {
+  font-size: 0.9375rem;
+  color: var(--netflix-gray-500);
+  text-decoration: line-through;
+}
+
+.preview-price .sale {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--netflix-white);
+}
+
+.discount-badge {
+  padding: 4px 10px;
+  background: var(--netflix-red);
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--netflix-red) 0%, #831010 100%);
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.cta-content p {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 32px;
+}
+
+.cta-section .btn-primary {
+  background: var(--netflix-white);
+  color: var(--netflix-red);
+}
+
+.cta-section .btn-primary:hover {
+  background: var(--netflix-gray-300);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .pricing-preview {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 70vh;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .ott-section {
+    margin-top: -50px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .preview-card {
+    flex-wrap: wrap;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.75rem;
+  }
+}
+

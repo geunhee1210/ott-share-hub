@@ -1,0 +1,154 @@
+.post-write-page {
+  min-height: calc(100vh - 70px);
+  padding: 40px 0;
+  background: linear-gradient(180deg, #0D0D0D 0%, #141414 100%);
+}
+
+.post-write-page .container {
+  max-width: 800px;
+}
+
+.post-write-page .back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--color-text-dark);
+  padding: 8px 0;
+  margin-bottom: 24px;
+  transition: color 0.2s;
+}
+
+.post-write-page .back-btn:hover {
+  color: var(--color-text-light);
+}
+
+.write-card {
+  background: var(--color-card-background);
+  border-radius: 12px;
+  padding: 40px;
+  border: 1px solid var(--color-border);
+}
+
+.write-card h1 {
+  font-size: 1.75rem;
+  margin-bottom: 32px;
+  color: var(--color-text-light);
+}
+
+.write-card .error-message {
+  background: rgba(229, 9, 20, 0.1);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.write-card .form-group {
+  margin-bottom: 24px;
+}
+
+.write-card .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.write-card .form-group input,
+.write-card .form-group select,
+.write-card .form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: #1a1a1a;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text-light);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.write-card .form-group input:focus,
+.write-card .form-group select:focus,
+.write-card .form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.write-card .form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23777' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.write-card .form-group textarea {
+  resize: vertical;
+  min-height: 300px;
+  line-height: 1.6;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.form-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.form-actions .btn-secondary {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-light);
+}
+
+.form-actions .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .write-card {
+    padding: 24px;
+  }
+
+  .write-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

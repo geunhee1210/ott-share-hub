@@ -1,0 +1,203 @@
+/* OTT Carousel */
+.ott-carousel-wrapper {
+  position: relative;
+  margin: 0 -20px;
+  padding: 20px;
+}
+
+.ott-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 0 30px;
+  scrollbar-width: none;
+}
+
+.ott-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Carousel Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--netflix-gray-700);
+  border-radius: 50%;
+  color: var(--netflix-white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  opacity: 0;
+}
+
+.ott-carousel-wrapper:hover .carousel-btn {
+  opacity: 1;
+}
+
+.carousel-btn:hover {
+  background: var(--netflix-red);
+  border-color: var(--netflix-red);
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+
+.carousel-btn.right {
+  right: 0;
+}
+
+/* OTT Card */
+.ott-card {
+  position: relative;
+  flex: 0 0 260px;
+  height: 340px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: all var(--transition-normal);
+}
+
+.ott-card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+  box-shadow: var(--shadow-lg);
+}
+
+.ott-card-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+}
+
+.ott-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.ott-card-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.ott-logo {
+  font-size: 3rem;
+  margin-bottom: auto;
+}
+
+.ott-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ott-pricing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.original-price {
+  font-size: 0.875rem;
+  color: var(--netflix-gray-500);
+  text-decoration: line-through;
+}
+
+.share-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.discount {
+  padding: 2px 8px;
+  background: var(--netflix-red);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.ott-features {
+  list-style: none;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--transition-normal);
+}
+
+.ott-card:hover .ott-features {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ott-features li {
+  font-size: 0.8125rem;
+  color: var(--netflix-gray-300);
+  margin-bottom: 4px;
+}
+
+.ott-features li::before {
+  content: '✓ ';
+  color: var(--accent-green);
+}
+
+.ott-card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  background: var(--netflix-white);
+  color: var(--netflix-black);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--transition-normal);
+}
+
+.ott-card:hover .ott-card-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ott-card-btn:hover {
+  background: var(--netflix-red);
+  color: var(--netflix-white);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ott-card {
+    flex: 0 0 200px;
+    height: 280px;
+  }
+  
+  .carousel-btn {
+    display: none;
+  }
+  
+  .ott-features {
+    display: none;
+  }
+}
+
