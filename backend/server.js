@@ -884,10 +884,13 @@ if (fs.existsSync(frontendBuildPath)) {
   app.use(express.static(frontendBuildPath));
   
   // SPA를 위한 모든 GET 요청을 index.html로 라우팅 (API 제외)
-  app.get('*', (req, res) => {
-    // API 요청이 아닌 경우에만 index.html 반환
-    if (!req.path.startsWith('/api')) {
+  // Express 5에서는 와일드카드 문법이 변경됨
+  app.use((req, res, next) => {
+    // API 요청이 아니고 파일이 아닌 경우에만 index.html 반환
+    if (!req.path.startsWith('/api') && req.method === 'GET') {
       res.sendFile(path.join(frontendBuildPath, 'index.html'));
+    } else {
+      next();
     }
   });
   

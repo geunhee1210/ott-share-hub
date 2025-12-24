@@ -1,185 +1,146 @@
-# MailFlow - 스마트 이메일 자동 발송 시스템
+# OTT Share Hub 🎬
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/Node.js-20.x-339933?style=for-the-badge&logo=node.js" />
-  <img src="https://img.shields.io/badge/PM2-5.x-2B037A?style=for-the-badge&logo=pm2" />
-  <img src="https://img.shields.io/badge/Gmail-SMTP-EA4335?style=for-the-badge&logo=gmail" />
-</p>
+프리미엄 OTT 구독 공유 플랫폼 - Netflix 스타일 UI
 
-## 📌 소개
+## 🚀 Features
 
-MailFlow는 Gmail SMTP를 활용한 세련된 이메일 자동 발송 시스템입니다. 대기업 수준의 UI/UX와 안정적인 백엔드로 구성되어 있습니다.
+- **OTT 서비스 카탈로그** - Netflix, Disney+, Spotify 등 다양한 OTT 서비스
+- **구독 공유** - 파티 매칭으로 구독료 절감
+- **커뮤니티** - 게시판 및 댓글 기능
+- **관리자 패널** - 사용자/게시물/댓글 관리
+- **반응형 디자인** - 모바일/태블릿/데스크톱 지원
 
-## ✨ 주요 기능
+## 🛠 Tech Stack
 
-- 🚀 **즉시 발송** - 작성 즉시 이메일 발송
-- ⏰ **예약 발송** - 원하는 날짜와 시간에 자동 발송
-- 🔐 **보안 연결** - Gmail 앱 비밀번호를 통한 안전한 인증
-- 📧 **실시간 미리보기** - 작성 중인 이메일 미리보기
-- 📋 **발송 히스토리** - 최근 발송한 이메일 목록 확인
-- 🎨 **모던 UI** - 다크 테마 기반의 세련된 인터페이스
+**Frontend:**
+- React 19 + Vite
+- React Router DOM
+- Framer Motion
+- Lucide React Icons
+- CSS3 (Netflix-style theming)
 
-## 🛠️ 기술 스택
-
-### Frontend
-- React 18 + Vite
-- Framer Motion (애니메이션)
-- Lucide React (아이콘)
-- Axios (HTTP 클라이언트)
-
-### Backend
+**Backend:**
 - Node.js + Express
-- Nodemailer (이메일 발송)
-- CORS (크로스 도메인)
-- Dotenv (환경 변수)
+- JWT Authentication
+- bcrypt.js
+- In-memory Database
 
-### DevOps
-- PM2 (프로세스 관리)
+## 📦 Installation
 
-## 📦 설치 방법
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-### 1. 의존성 설치
+### Local Development
 
 ```bash
-# 백엔드 의존성 설치
-cd backend
-npm install
+# 1. 저장소 클론
+git clone <repository-url>
+cd ott-share-hub
 
-# 프론트엔드 의존성 설치
-cd ../frontend
-npm install
+# 2. 의존성 설치
+npm run install:all
+
+# 3. 프론트엔드 개발 서버 시작 (터미널 1)
+cd frontend && npm run dev
+
+# 4. 백엔드 서버 시작 (터미널 2)
+cd backend && npm run dev
 ```
 
-### 2. 환경 변수 설정 (선택사항)
+### Production Build
 
 ```bash
-# backend/.env 파일 생성
-PORT=3001
-```
-
-## 🚀 실행 방법
-
-### 개발 모드
-
-```bash
-# 터미널 1: 백엔드 서버 실행
-cd backend
-npm run dev
-
-# 터미널 2: 프론트엔드 개발 서버 실행
-cd frontend
-npm run dev
-```
-
-### PM2로 프로덕션 실행
-
-```bash
-# 프로젝트 루트 디렉토리에서
-pm2 start ecosystem.config.js
-
-# 프론트엔드 빌드 후 정적 파일 서빙
-cd frontend
+# 프론트엔드 빌드
 npm run build
+
+# 서버 시작 (프론트엔드 + 백엔드)
+npm start
 ```
 
-### PM2 명령어
+## 🌐 Deployment
 
-```bash
-# 상태 확인
-pm2 status
+### Railway (추천) 🚂
 
-# 로그 확인
-pm2 logs mail-sender-backend
+**장점:** 슬립 모드 없음, PostgreSQL 무료, 월 $5 크레딧
 
-# 재시작
-pm2 restart mail-sender-backend
+1. GitHub에 저장소 생성 및 코드 푸시
+2. [Railway Dashboard](https://railway.app/) 접속 및 GitHub 로그인
+3. **"New Project"** → **"Deploy from GitHub repo"** 선택
+4. 저장소 선택 후 **"Deploy Now"** 클릭
+5. 배포 완료 후 **Settings** → **Networking** → **"Generate Domain"** 클릭
+6. 환경 변수 설정 (Variables 탭):
+   - `NODE_ENV` = `production`
+   - `JWT_SECRET` = (랜덤 문자열)
 
-# 중지
-pm2 stop mail-sender-backend
+#### PostgreSQL 추가 (선택사항 - 영구 데이터 저장)
+1. 프로젝트에서 **"+ New"** → **"Database"** → **"PostgreSQL"**
+2. 자동으로 `DATABASE_URL` 환경변수가 추가됨
 
-# 삭제
-pm2 delete mail-sender-backend
+### Render (대안)
+
+1. [Render Dashboard](https://dashboard.render.com/) 접속
+2. **"New"** → **"Web Service"** 선택
+3. GitHub 저장소 연결
+4. 설정:
+   - **Build Command:** `npm run render-build`
+   - **Start Command:** `npm start`
+5. 환경 변수: `NODE_ENV`=production, `JWT_SECRET`=(랜덤)
+
+## 🔐 Demo Account
+
+- **관리자:** admin@ottshare.com / password
+- **일반 사용자:** 회원가입으로 생성
+
+## 📁 Project Structure
+
 ```
-
-## 📧 Gmail 앱 비밀번호 설정
-
-Gmail로 이메일을 발송하려면 **앱 비밀번호**가 필요합니다.
-
-### 설정 방법
-
-1. [Google 계정](https://myaccount.google.com/)에 로그인
-2. **보안** 탭으로 이동
-3. **2단계 인증** 활성화 (아직 안했다면)
-4. **앱 비밀번호** 선택
-5. 앱: **메일**, 기기: **기타(맞춤 이름)** 선택
-6. 생성된 **16자리 비밀번호**를 복사하여 앱에서 사용
-
-> ⚠️ **주의**: 일반 Gmail 비밀번호가 아닌 **앱 비밀번호**를 사용해야 합니다.
-
-## 📁 프로젝트 구조
-
-```
-test/
-├── frontend/                 # React 프론트엔드
+ott-share-hub/
+├── frontend/           # React 프론트엔드
 │   ├── src/
-│   │   ├── App.jsx          # 메인 컴포넌트
-│   │   ├── App.css          # 컴포넌트 스타일
-│   │   ├── index.css        # 글로벌 스타일
-│   │   └── main.jsx         # 엔트리 포인트
-│   ├── vite.config.js       # Vite 설정
+│   │   ├── components/ # 재사용 컴포넌트
+│   │   ├── pages/      # 페이지 컴포넌트
+│   │   ├── context/    # React Context
+│   │   ├── services/   # API 서비스
+│   │   └── ...
 │   └── package.json
-├── backend/                  # Express 백엔드
-│   ├── server.js            # 메인 서버
+├── backend/            # Express 백엔드
+│   ├── server.js       # 메인 서버 파일
 │   └── package.json
-├── ecosystem.config.js       # PM2 설정
+├── package.json        # 루트 패키지 (빌드 스크립트)
+├── render.yaml         # Render 배포 설정
 └── README.md
 ```
 
-## 🔌 API 엔드포인트
+## 📝 API Endpoints
 
-### POST /api/send-email
-이메일 발송
+### Authentication
+- `POST /api/auth/register` - 회원가입
+- `POST /api/auth/login` - 로그인
+- `GET /api/auth/me` - 현재 사용자 정보
 
-```json
-{
-  "senderEmail": "your-email@gmail.com",
-  "appPassword": "xxxx xxxx xxxx xxxx",
-  "recipientEmail": "recipient@example.com",
-  "subject": "이메일 제목",
-  "content": "이메일 내용",
-  "scheduleTime": "2024-12-25T09:00:00.000Z" // 선택사항
-}
-```
+### OTT Services
+- `GET /api/ott` - OTT 서비스 목록
+- `GET /api/ott/:id` - OTT 서비스 상세
 
-### POST /api/test-connection
-Gmail 연결 테스트
+### Posts
+- `GET /api/posts` - 게시물 목록
+- `GET /api/posts/:id` - 게시물 상세
+- `POST /api/posts` - 게시물 작성
+- `PUT /api/posts/:id` - 게시물 수정
+- `DELETE /api/posts/:id` - 게시물 삭제
 
-```json
-{
-  "senderEmail": "your-email@gmail.com",
-  "appPassword": "xxxx xxxx xxxx xxxx"
-}
-```
+### Comments
+- `POST /api/posts/:postId/comments` - 댓글 작성
+- `PUT /api/comments/:id` - 댓글 수정
+- `DELETE /api/comments/:id` - 댓글 삭제
 
-### GET /api/health
-서버 상태 확인
+### Admin
+- `GET /api/admin/stats` - 대시보드 통계
+- `GET /api/admin/users` - 사용자 목록
+- `PUT /api/admin/users/:id` - 사용자 수정
+- `DELETE /api/admin/users/:id` - 사용자 삭제
 
-## 🎨 UI 특징
-
-- **다크 테마**: 눈의 피로를 줄이는 세련된 다크 모드
-- **그라디언트 액센트**: 틸/시안 컬러의 프리미엄 그라디언트
-- **글래스모피즘**: 투명 효과와 블러로 깊이감 표현
-- **부드러운 애니메이션**: Framer Motion 기반 인터랙션
-- **반응형 디자인**: 모바일부터 데스크탑까지 지원
-
-## 📝 라이선스
+## 📄 License
 
 MIT License
-
----
-
-<p align="center">
-  Made with ❤️ by MailFlow Team
-</p>
-
